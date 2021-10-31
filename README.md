@@ -113,7 +113,7 @@ Awesome Task Exchange System (aTES) для UberPopug Inc
     a. считать сколько денег сотрудник получил за рабочий день
     b. отправлять на почту сумму выплаты.
 
-Команад пересчёта баланса в конце рабочего дня:
+Команда пересчёта баланса в конце рабочего дня:
 - Actor — Scheduler.EndOfWorkDay
 - Command — Calculate balance
 - Data — account public id, balance
