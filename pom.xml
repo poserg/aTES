@@ -9,9 +9,13 @@
 	<name>aTES</name>
 	<description>Awesome Task Exchange System (aTES) для UberPopug Inc</description>
 	<properties>
+        <!-- non-dependencies -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
 	</properties>
 	<modules>
 		<module>auth</module>
+		<module>task-tracker</module>
+		<module>client-app</module>
 	</modules>
 </project>
