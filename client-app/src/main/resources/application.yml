@@ -28,6 +28,7 @@ server:
 logging: 
   level: 
     org.springframework: INFO
+    com.github.poserg.ates: DEBUG
 
 task-tracker-service:
   api:
