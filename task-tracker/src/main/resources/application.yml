@@ -11,3 +11,7 @@ spring:
         jwt:
           issuer-uri: http://localhost:8083/auth/realms/ates
           jwk-set-uri: http://localhost:8083/auth/realms/ates/protocol/openid-connect/certs
+
+logging:
+    level:
+        com.github.poserg.ates: DEBUG

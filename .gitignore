@@ -34,3 +34,11 @@ build/
 
 .env
 config/*
+
+.attach_pid*
+
+task-tracker/config
+
+auth/testdb.mv.db
+
+billing

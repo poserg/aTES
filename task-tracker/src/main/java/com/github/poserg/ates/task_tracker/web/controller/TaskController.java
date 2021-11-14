@@ -6,7 +6,7 @@ import com.github.poserg.ates.task_tracker.web.dto.TaskDto;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +22,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping(value = "/api/tasks")
+@Slf4j
 public class TaskController {
 
     private ITaskService taskService;
@@ -50,6 +51,7 @@ public class TaskController {
         Iterable<Task> tasks = this.taskService.findAll();
         List<TaskDto> tasksDtos = new ArrayList<>();
         tasks.forEach(p -> tasksDtos.add(convertToDto(p)));
+        log.debug("Return tasks: {}", tasksDtos);
         return tasksDtos;
     }
 
@@ -60,7 +62,7 @@ public class TaskController {
     }
 
     protected TaskDto convertToDto(Task entity) {
-        return new TaskDto(entity.getId(), entity.getName());
+        return new TaskDto(entity.getId(), entity.getName(), entity.getDescription(), entity.getStatus());
     }
 
     protected Task convertToEntity(TaskDto dto) {
