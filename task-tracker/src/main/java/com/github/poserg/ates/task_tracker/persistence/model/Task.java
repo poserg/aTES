@@ -17,7 +17,7 @@ public class Task {
     @JsonIgnore
     private Long id;
 
-    private String name;
+    private String title;
 
     private String description;
 
@@ -28,7 +28,7 @@ public class Task {
     protected Task() {
     }
 
-    public Task(String name) {
-        this.name = name;
+    public Task(String title) {
+        this.title = title;
     }
 }

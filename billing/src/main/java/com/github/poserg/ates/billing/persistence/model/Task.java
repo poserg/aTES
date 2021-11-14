@@ -19,11 +19,11 @@ public class Task {
     @JsonIgnore
     private Long id;
     private UUID publicId;
-    private String name;
+    private String title;
     private String status;
     private Double cost;
 
-    public Task(String name) {
-        this.name = name;
+    public Task(String title) {
+        this.title = title;
     }
 }

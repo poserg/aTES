@@ -62,11 +62,11 @@ public class TaskController {
     }
 
     protected TaskDto convertToDto(Task entity) {
-        return new TaskDto(entity.getId(), entity.getName(), entity.getDescription(), entity.getStatus());
+        return new TaskDto(entity.getId(), entity.getTitle(), entity.getDescription(), entity.getStatus());
     }
 
     protected Task convertToEntity(TaskDto dto) {
-        Task task = new Task(dto.getName());
+        Task task = new Task(dto.getTitle());
         if (!StringUtils.isEmpty(dto.getId())) {
             task.setId(dto.getId());
         }

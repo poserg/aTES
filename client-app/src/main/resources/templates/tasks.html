@@ -22,7 +22,7 @@
 			<thead>
 				<tr>
 					<td>ID</td>
-					<td>Name</td>
+					<td>Title</td>
                     <td>Description</td>
                     <td>Status</td>
 				</tr>
@@ -33,7 +33,7 @@
 				</tr>
 				<tr th:each="task : ${tasks}">
 					<td><span th:text="${task.id}"> ID </span></td>
-					<td><span th:text="${task.name}"> Name </span></td>
+					<td><span th:text="${task.title}"> Title </span></td>
                     <td><span th:text="${task.description}"> Description </span></td>
                     <td><span th:text="${task.status}"> Status </span></td>
 				</tr>
