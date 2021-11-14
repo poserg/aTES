@@ -1,7 +1,7 @@
 server: 
-  port: 8081
+  port: 8084
   servlet: 
-    context-path: /task-tracker-service
+    context-path: /billing
 
 ####### resource server configuration properties
 spring:
@@ -12,6 +12,6 @@ spring:
           issuer-uri: http://localhost:8083/auth/realms/ates
           jwk-set-uri: http://localhost:8083/auth/realms/ates/protocol/openid-connect/certs
 
-logging:
-    level:
-        com.github.poserg.ates: DEBUG
+logging: 
+  level: 
+    com.github.poserg.ates: DEBUG
