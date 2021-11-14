@@ -41,5 +41,20 @@
 		</table>
 	</div>
 
+	<form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
+	    <table border="1">
+	        <tr>
+	            <td><label th:text="#{task.name}" /></td>
+	            <td><input type="text" th:field="*{name}" /></td>
+	        </tr>
+            <tr>
+                <td><label th:text="#{task.description}" /></td>
+                <td><input type="text" th:field="*{description}" /></td>
+            </tr>
+	        <tr>
+	            <td><input type="submit" value="Submit" /></td>
+	        </tr>
+	    </table>
+	</form>
 </body>
 </html>
