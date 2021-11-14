@@ -6,10 +6,13 @@ import com.github.poserg.ates.task_tracker.persistence.model.Task;
 import com.github.poserg.ates.task_tracker.persistence.repository.ITaskRepository;
 import com.github.poserg.ates.task_tracker.service.ITaskService;
 import java.util.Optional;
+import java.util.UUID;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class TaskServiceImpl implements ITaskService {
 
@@ -29,9 +32,14 @@ public class TaskServiceImpl implements ITaskService {
 
     @Override
     public Task save(Task task) {
+        if (task.getPublicId() == null) {
+            task.setPublicId(UUID.randomUUID());
+        }
         var savedTask = taskRepository.save(task);
         try {
-            kafkaTemplate.send("tasks-stream", objectMapper.writeValueAsString(savedTask));
+            String message = objectMapper.writeValueAsString(savedTask);
+            log.debug("Send to topic 'tasks-stream' message '{}'", message);
+            kafkaTemplate.send("tasks-stream", message);
         } catch (JsonProcessingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
