@@ -1,15 +1,23 @@
-server:
-  port: 8083
-
 spring:
-  datasource:
-    username: sa
-    url: jdbc:h2:file:./testdb
+  application:
+    name: auth
 
-keycloak:
-  server:
-    contextPath: /auth
-    adminUser:
-      username: admin
-      password: pass
-    realmImportFile: ates-realm.json
+server:
+  port: 0
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+        defaultZone: ${EUREKA_URI:http://localhost:8761/eureka/}
+
+management:
+  endpoints:
+    routes:
+      enabled: true
+    web:
+      exposure:
+        include: "*"
