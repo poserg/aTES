@@ -11,7 +11,7 @@
 	<properties>
         <!-- non-dependencies -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>17</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<modules>
 		<module>auth</module>
